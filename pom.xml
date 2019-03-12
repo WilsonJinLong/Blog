@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fleam</groupId>
-    <artifactId>service-auth</artifactId>
+    <artifactId>blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>service-auth</name>
+    <name>blog</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -157,12 +157,12 @@
                 <artifactId>wagon-maven-plugin</artifactId>
                 <version>1.0</version>
                 <configuration>
-                    <fromFile>target/service-auth.war</fromFile>
+                    <fromFile>target/blog.war</fromFile>
                     <url>scp://root:double-521@192.168.1.220/home/tomcat/apache-tomcat-8.5.35/webapps</url>
                     <commands>
                         <!-- 重启Tomcat -->
                         <command>sh /home/tomcat/apache-tomcat-8.5.35/bin/shutdown.sh</command>
-                        <command>rm -rf /home/tomcat/apache-tomcat-8.5.35/webapps/service-auth</command>
+                        <command>rm -rf /home/tomcat/apache-tomcat-8.5.35/webapps/blog</command>
                         <command>sh /home/tomcat/apache-tomcat-8.5.35/bin/startup.sh</command>
                     </commands>
                     <!-- 显示运行命令的输出结果 -->
