@@ -55,7 +55,7 @@
         <appender-ref ref="fileErrorAppender" />
     </appender>
 
-    <logger name="com.fleam.serviceauth.mapper" level="debug"  additivity="false">
+    <logger name="com.fleam.blog.mapper" level="debug"  additivity="false">
         <appender-ref ref="sqlAppender" />
     </logger>
 

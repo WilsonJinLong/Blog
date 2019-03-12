@@ -1,7 +1,7 @@
 logging:
   level:
     tk.mybatis: debug
-    com.fleam.serviceauth: debug
+    com.fleam.blog: debug
   #日志
   config: classpath:logback-${spring.profiles.active}.xml
 #  config: classpath:logback-prod.xml
