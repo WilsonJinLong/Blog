@@ -3,8 +3,8 @@ logging:
     tk.mybatis: debug
     com.fleam.serviceauth: debug
   #日志
-#  config: classpath:logback-${spring.profiles.active}.xml
-  config: classpath:logback-prod.xml
+  config: classpath:logback-${spring.profiles.active}.xml
+#  config: classpath:logback-prod.xml
 
 server:
   port: 8764
