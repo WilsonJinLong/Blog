@@ -1,5 +1,13 @@
+logging:
+  level:
+    tk.mybatis: debug
+    com.fleam.serviceauth: debug
+  #日志
+#  config: classpath:logback-${spring.profiles.active}.xml
+  config: classpath:logback-prod.xml
+
 server:
-  port: 8763
+  port: 8764
 
 spring:
   profiles:

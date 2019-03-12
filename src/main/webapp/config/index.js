@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
 			'/api':{
 				// target:'http://192.168.1.220:8080/service-auth',
-        target:'http://localhost:8763/',
+        target:'http://localhost:8764/',
 				changeOrigin:true,
 				pathRewrite:{
 					'^/':''
