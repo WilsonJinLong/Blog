@@ -13,6 +13,10 @@
     </script>
     <script src="../js/vue.min.js">
     </script>
+
+    <script src="https://unpkg.com/marked@0.3.6"></script>
+    <script src="https://unpkg.com/lodash@4.16.0"></script>
+
 </head>
 
 <body>
@@ -36,32 +40,13 @@
         </div>
     </div>
 </div>
-<div class="ui text container" id="app">
-    <div >
-        <div class="ui main text container" style="padding:20px;margin-bottom: 30px;"
-             v-for="item in datas">
-            <a :href="'article.html?id=' + item.id" style="color:black">
-                <h1 class="ui header">
-                    {{ item.title }}
-                </h1>
-                <p>
-                    {{ item.context | ellipsis }}
-                </p>
-            </a>
+<div class="ui text container">
+    <div id="app">
+        <div class="ui main text container" style="padding:20px;margin-bottom: 30px;">
+            <center><h2 style="margin-bottom:60px">{{datas.title}}</h2></center>
+            <!--<textarea :value="datas.context" @input="update"></textarea>-->
+            <div v-html="compiledMarkdown"></div>
         </div>
-    </div>
-    <div class="ui main text container" style="padding:20px;margin-bottom: 10px;margin-top:10px">
-
-        <a :href="'index.html?ipage=' + ipage" style="color:black">
-          下一页
-        </a>
-
-        <!--<button class="ui right labeled icon button">-->
-            <!--<i class="right arrow icon">-->
-            <!--</i>-->
-            <!--下一页-->
-        <!--</button>-->
-
     </div>
 </div>
 <div class="ui inverted vertical footer segment">
@@ -80,25 +65,24 @@
         if (r != null) return unescape(r[2]);
         return null;
     }
-    var ipage = parseInt(getQueryString("ipage"))+1?parseInt(getQueryString("ipage"))+1:1;
-    axios.get('http://localhost:8763/api/article/articleList?currentPage='+ipage+'&pageSize=10').then(function(response) {
-        console.log(response.data.data.articleList.records);
-        var data = response.data.data.articleList.records;
-
-        Vue.filter('ellipsis',
-            function(value) {
-                if (!value) return ''
-                if (value.length > 100) {
-                    return value.slice(0, 100) + '...'
-                }
-                return value
-            })
-
+    var id = getQueryString("id");
+    axios.get('http://192.168.3.114:8763/api/article/articleInfo?id='+ id).then(function(response) {
+        console.log(response.data.data.articleInfo);
+        var data = response.data.data.articleInfo;
         new Vue({
             el: '#app',
             data: {
-                datas: data,
-                ipage:ipage
+                datas: data
+            },
+            computed: {
+                compiledMarkdown: function () {
+                    return marked(this.datas.context, { sanitize: true })
+                }
+            },
+            methods: {
+                update: _.debounce(function (e) {
+                    this.datas.context = e.target.value
+                }, 300)
             }
         })
     }).
@@ -106,6 +90,7 @@
         console.log(error);
     });
 </script>
+
 </body>
 
 </html>
