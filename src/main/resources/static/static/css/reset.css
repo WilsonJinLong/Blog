@@ -1,0 +1,63 @@
+html,body,#app,.index,.login {
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+html,body,#app,.index {
+  width:100%;
+}
+
+.el-header {
+  background-color:#B3C0D1;
+  color:#333;
+  line-height:60px;
+}
+
+.el-aside {
+  background-color:#545c64!important;
+}
+
+.el-menu {
+  border-right:0!important;
+}
+
+.text {
+  font-size:14px;
+}
+
+.item {
+  margin-bottom:18px;
+}
+
+.clearfix:before,.clearfix:after {
+  display:table;
+  content:"";
+}
+
+.clearfix:after {
+  clear:both;
+}
+
+.el-container {
+  height:100%!important;
+}
+
+.login {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.el-form {
+  border:1px solid #ccc;
+  border-radius:4px;
+  padding:0 58px 10px 10px;
+}
+
+.el-form .title {
+  font-size:22px;
+  color:#333;
+  font-weight:700;
+  padding:20px 0 20px 60px;
+}

@@ -184,7 +184,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>C:\Users\win10\AppData\Roaming\npm\cnpm.cmd</executable>
+                            <executable>cnpm.cmd</executable>
                             <arguments>
                                 <argument>install</argument>
                             </arguments>
@@ -199,7 +199,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>C:\Users\win10\AppData\Roaming\npm\cnpm.cmd</executable>
+                            <executable>cnpm.cmd</executable>
                             <arguments>
                                 <argument>run</argument>
                                 <argument>build</argument>
