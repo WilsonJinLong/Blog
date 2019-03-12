@@ -6,7 +6,6 @@ log.path_IS_UNDEFINED
 
 ### Vue ###
 /src/main/static/static/
-/src/main/static/index.html
 
 ### STS ###
 .apt_generated
